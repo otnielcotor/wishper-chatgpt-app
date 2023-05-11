@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Box} from "@mui/system";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -11,12 +11,31 @@ import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import ArrowForwardIosTwoToneIcon from "@mui/icons-material/ArrowForwardIosTwoTone";
 import {Drawer} from "@mui/material";
+import {collection, DocumentData} from "firebase/firestore";
+import {db} from "../../firebase";
+import {getDocs} from "@firebase/firestore";
+import {QuerySnapshot} from "@firebase/firestore-types";
+import {router} from "next/client";
+import {useRouter} from "next/router";
 
 type Anchor = 'left';
-export default function CustomDrawer() {
+
+
+export default  function CustomDrawer() {
     const [state, setState] = React.useState({
         left: false
     });
+    const [chats,setChats] = React.useState<DocumentData[]>([]);
+    const router = useRouter();
+const fetchData = async ()=>{
+    const querySnapshot = await getDocs(collection(db, "chats"));
+    setChats(querySnapshot.docs.map(doc => doc.data()));
+    console.log("querySnapshot",chats)
+}
+
+useEffect(()=>{
+    void fetchData();
+},[])
 
     const toggleDrawer =
         (anchor: Anchor, open: boolean) =>
@@ -61,13 +80,14 @@ export default function CustomDrawer() {
             </List>
             <Divider/>
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
+                {chats.map((message, index) => (
+                    <ListItem key={index} disablePadding>
+                        <ListItemButton onClick={()=>{
+                            router.push('/conversations/'+ index)}}>
                             <ListItemIcon style={textCustom}>
-                                {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
+                                <MailIcon/>
                             </ListItemIcon>
-                            <ListItemText disableTypography primary={text} style={textCustom}/>
+                            <ListItemText disableTypography primary={<p>{index}</p>} style={textCustom}/>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -75,8 +95,7 @@ export default function CustomDrawer() {
         </Box>
     );
 
-    return (
-        <div>
+    return (<div>
             <React.Fragment key={"left"}>
                 <Button onClick={toggleDrawer("left", true)}
                         endIcon={<ArrowForwardIosTwoToneIcon sx={{fontSize: '2rem !important'}}/>}
@@ -94,7 +113,7 @@ export default function CustomDrawer() {
                     sx={{display: {xs: "none", sm: "block"}}}
                 >
 
-                    {menu("left")}
+                    {chats && menu("left")}
 
                 </Drawer>
 

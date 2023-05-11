@@ -16,7 +16,7 @@ export default  function Introduction ()
     return (
         <>
             <Typography sx={introductionStyle}>WHISHPER-CHATGPT</Typography>
-        <h2 className={`${styles.center} ${styles.white} ${roboto.className}` }>Hello! Welcome to WHISPER-CHATGPT App page</h2>
+{/*        <h2 className={`${styles.center} ${styles.white} ${roboto.className}` }>Hello! Welcome to WHISPER-CHATGPT App page</h2>*/}
         </>
     );
 }

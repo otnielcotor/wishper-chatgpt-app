@@ -48,6 +48,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 1rem;
+
 }
 
 .audio-recorder {
@@ -72,11 +74,11 @@ a {
 }
 
 .customMenuButton {
-    color: black;
-    font-size: 2rem;
-    background-color: #143F46;
-    border-radius: 0.5rem;
-    left: -1rem;
+    color: black !important;
+    font-size: 2rem !important;
+    background-color: #143F46 !important;
+    border-radius: 0.5rem !important;
+    left: -1rem !important;
 }
 
 .customMenuButton-icon {
@@ -97,6 +99,10 @@ a {
 }
 
 .css-1d6wzja-MuiButton-startIcon {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+.MuiButton-startIcon {
     margin-right: 0 !important;
     margin-left: 0 !important;
 }
@@ -121,7 +127,7 @@ a {
     transform: translate(-50%, -50%);
     padding: 15px;
 }
-.css-1qe2uba-MuiTypography-root
+.MuiTypography-root
 {
 padding-top: 1rem !important;
 }
@@ -134,7 +140,7 @@ padding-top: 1rem !important;
 .modal-modal-title{
     padding-top: 1rem;
 }
-.css-1d6wzja-MuiButton-startIcon>*:nth-of-type(1)
+.MuiButton-startIcon>*:nth-of-type(1)
 {
     font-size: 1.8rem !important;
     /*margin-top: 1rem;*/
@@ -144,27 +150,28 @@ padding-top: 1rem !important;
     justify-content: center;
     padding-top: 1rem;
 }
+
 .optionButton, .okButton
 {
-    background-color: black;
-    border-radius: 1rem;
-    color: white;
-    margin-right: 1rem;
-    margin-top: 0.5rem;
+    background-color: black !important;
+    border-radius: 1rem !important;
+    color: white !important;
+    margin-right: 1rem !important;
+    margin-top: 0.5rem !important;
 }
 
 .optionButton:hover
 {
-    background-color: #2B1C2F;
+    background-color: #2B1C2F !important;
 }
 
 .okBtn{
-    margin-top: 2.5rem;
-    display: flex;
-    justify-content: center;
+    margin-top: 2.5rem !important;
+    display: flex !important;
+    justify-content: center !important;
 }
 
 .okButton:hover
 {
-    background-color: #857d7d;
+    background-color: #857d7d !important;
 }

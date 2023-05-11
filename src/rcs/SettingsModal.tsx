@@ -27,7 +27,7 @@ export default function SettingsModal(props:SettingsModalProps) {
     const languageOptions=(<List>
             {['RO', 'FR', 'EN'].map((text, index) => (
                 <ListItem key={text} disablePadding>
-                    <ListItemButton>
+                    <ListItemButton selected={text===language} >
                         <ListItemText disableTypography primary={text}/>
                     </ListItemButton>
                 </ListItem>
@@ -37,7 +37,7 @@ export default function SettingsModal(props:SettingsModalProps) {
     const roleOptions=(<List>
         {['1', '2', '3'].map((text, index) => (
             <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton selected = {text===role}>
                     <ListItemText disableTypography primary={text}/>
                 </ListItemButton>
             </ListItem>
@@ -62,9 +62,9 @@ export default function SettingsModal(props:SettingsModalProps) {
                         Language
                     </Typography>
                     <div className="languageOptions">
-                        <Button className="optionButton">EN</Button>
-                        <Button className="optionButton">FR</Button>
-                        <Button className="optionButton">RO</Button>
+                        <Button  className="optionButton">en-US</Button>
+                        <Button className="optionButton">fr-FR</Button>
+                        <Button className="optionButton">ro-RO</Button>
                     </div>
                     <Typography id="modal-modal-title" variant="h6" component="h2" pl={'1rem'}>
                         Chatbot Role
