@@ -79,6 +79,8 @@ a {
     background-color: #143F46 !important;
     border-radius: 0.5rem !important;
     left: -1rem !important;
+    margin-top: 15rem !important;
+    position: absolute;
 }
 
 .customMenuButton-icon {
@@ -102,20 +104,21 @@ a {
     margin-right: 0 !important;
     margin-left: 0 !important;
 }
+
 .MuiButton-startIcon {
     margin-right: 0 !important;
     margin-left: 0 !important;
 }
 
-.alignSettingsButton{
+.alignSettingsButton {
     display: flex;
     margin-right: 2rem;
-    top:1rem;
-    right:1rem;
+    top: 1rem;
+    right: 1rem;
     position: absolute;
 }
 
-.css-su28s1{
+.css-su28s1 {
     background-color: #143F46;
     border-radius: 1rem;
     border-color: black;
@@ -127,32 +130,33 @@ a {
     transform: translate(-50%, -50%);
     padding: 15px;
 }
-.MuiTypography-root
-{
-padding-top: 1rem !important;
+
+.MuiTypography-root {
+    padding-top: 1rem !important;
 }
-#closeBtn
-{
+
+#closeBtn {
     display: flex;
     justify-content: right;
     right: 0 !important;
 }
-.modal-modal-title{
+
+.modal-modal-title {
     padding-top: 1rem;
 }
-.MuiButton-startIcon>*:nth-of-type(1)
-{
+
+.MuiButton-startIcon > *:nth-of-type(1) {
     font-size: 1.8rem !important;
     /*margin-top: 1rem;*/
 }
-.languageOptions, .roleOptions{
+
+.languageOptions, .roleOptions {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
 }
 
-.optionButton, .okButton
-{
+.optionButton, .okButton {
     background-color: black !important;
     border-radius: 1rem !important;
     color: white !important;
@@ -160,18 +164,16 @@ padding-top: 1rem !important;
     margin-top: 0.5rem !important;
 }
 
-.optionButton:hover
-{
+.optionButton:hover {
     background-color: #2B1C2F !important;
 }
 
-.okBtn{
+.okBtn {
     margin-top: 2.5rem !important;
     display: flex !important;
     justify-content: center !important;
 }
 
-.okButton:hover
-{
+.okButton:hover {
     background-color: #857d7d !important;
 }

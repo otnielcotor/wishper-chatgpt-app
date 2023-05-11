@@ -13,6 +13,8 @@ import Button from '@mui/material/Button';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CustomDrawer from "@/rcs/CustomDrawer";
 import SettingsModal from "@/rcs/SettingsModal";
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 
 const robotoCon = Roboto_Condensed({subsets: ['latin'], weight: '400'});
 import {addDoc, collection, doc, DocumentData, setDoc} from "firebase/firestore";
@@ -28,9 +30,9 @@ export interface MessageSchema {
 // roles
 const botRolePairProgrammer =
     'You are an expert pair programmer helping build an AI bot application with the OpenAI ChatGPT and Whisper APIs. The software is a web application built with NextJS with serverless functions, React functional components using TypeScript.';
-const funBotRole ='You are a translation mastermind. You translate from any language into romanian';
+const funBotRole = 'You are a translation mastermind. You translate from any language into romanian';
 const nocontext = '';
-const chatbotRole =' Esti un robot care ma ajuta sa rezolv probleme personale.'
+const chatbotRole = ' Esti un robot care ma ajuta sa rezolv probleme personale.'
 
 // personalities
 const quirky =
@@ -39,7 +41,7 @@ const drugDealer =
     'You are a snarky black market drug dealer from the streets of Los Angeles. Sometimes you are rude and disrespectful. You often curse in your responses.';
 const straightLaced =
     'You are a straight laced corporate executive and only provide concise and accurate information.';
-const memeLord='You are a good translator. You translate from any language into romanian';
+const memeLord = 'You are a good translator. You translate from any language into romanian';
 // brevities
 const briefBrevity = 'Your responses are always 1 to 2 sentences.';
 const longBrevity = 'Your responses are always 3 to 4 sentences.';
@@ -59,21 +61,21 @@ const defaultContextSchema: MessageSchema = {
 };
 
 export default function Home() {
-    const [open, setOpen] = useState(true);
-    const [language, setLanguage]=useState("EN");
-    const [role, setRole]=useState(chatbotRole);
+    const [open, setOpen] = useState(false);
+    const [language, setLanguage] = useState("EN");
+    const [role, setRole] = useState(chatbotRole);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [messagesArray, setMessagesArray] = useState([defaultContextSchema]);
     const [audioSrc, setAudioSrc] = useState<string | null>(null);
-    const [docRef, setDocRef] = useState< DocumentReference<DocumentData> | null>(null);
-    if(messagesArray.length>1 && !docRef) {
+    const [docRef, setDocRef] = useState<DocumentReference<DocumentData> | null>(null);
+    if (messagesArray.length > 1 && !docRef) {
         const document = doc(collection(db, "chats"));
         // @ts-ignore
         setDocRef(document);
     }
     const handleOpen = () => setOpen(true);
-    const handleClose = (language:string,role:string) => {
+    const handleClose = (language: string, role: string) => {
 
         setLanguage(language);
         setRole(role);
@@ -86,7 +88,7 @@ export default function Home() {
             messagesArray[messagesArray.length - 1].role !== 'system'
         ) {
             gptRequest();
-            if(docRef )
+            if (docRef)
                 setDoc(doc(db, "chats", docRef.id), {
                     messages: messagesArray,
                 });
@@ -129,7 +131,7 @@ export default function Home() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ text, language }),
+            body: JSON.stringify({text, language}),
         });
         const audioBlob = await response.blob();
         const audioUrl = URL.createObjectURL(audioBlob);
@@ -140,7 +142,7 @@ export default function Home() {
             role: 'user',
             content: newMessage,
         };
-        console.log({ messagesArray });
+        console.log({messagesArray});
         setMessagesArray((prevState) => [...prevState, newMessageSchema]);
     };
 
@@ -155,7 +157,7 @@ export default function Home() {
                 method: 'POST',
                 body: formData,
             });
-            const { text, error } = await response.json();
+            const {text, error} = await response.json();
             if (response.ok) {
                 updateMessagesArray(text);
             } else {
@@ -163,7 +165,7 @@ export default function Home() {
                 setError(error.message);
             }
         } catch (error) {
-            console.log({ error });
+            console.log({error});
             setLoading(false);
             if (typeof error === 'string') {
                 setError(error);
@@ -193,11 +195,11 @@ export default function Home() {
                 <Introduction/>
 
                 <div id="audio-recorder-grid">
-                    { audioSrc && (
-                    <audio style={{paddingRight:'1rem'}} src={audioSrc} controls  onPlay={() => {
-                        console.log("logged", audioSrc)
-                    }} />)
-                }
+                    {audioSrc && (
+                        <audio style={{paddingRight: '1rem'}} src={audioSrc} controls onPlay={() => {
+                            console.log("logged", audioSrc)
+                        }}/>)
+                    }
                     <AudioRecorder
                         onRecordingComplete={(audioBlob) => whisperRequest(audioBlob)}
                     />
@@ -208,30 +210,82 @@ export default function Home() {
 
                 <div className="alignSettingsButton">
                     <Button onClick={handleOpen} startIcon={<SettingsIcon sx={{fontSize: '2.5rem !important'}}/>}
-                             className="settingsButton"></Button>
+                            className="settingsButton"></Button>
                 </div>
 
                 <SettingsModal open={open} onClose={handleClose}/>
 
-                <Box sx={{paddingX: '5rem',paddingY:'10rem'}}>
+                <Box sx={{paddingX: '5rem', paddingY: '10rem'}}>
                     <div className={`${styles.gridContainer} ${styles.gridScrollbar}`}>
-                        <Grid container spacing={1} justifyContent={"center"} alignItems={"center"} >
+                        <Grid container spacing={1} justifyContent={"center"} alignItems={"center"}>
                             <Grid item container alignItems={"center"} justifyContent={"center"} xs={10}
                                   direction={"column"}>
                                 {
                                     messagesArray.map((message, index) => {
                                         return (
-                                            <Grid item justifyContent={"center"} p={10} key={index}>
+
+                                            <>
+                                                <Grid item justifyContent={"center"} p={5} key={index}>
+                                                    <div className="replyIcon">
+                                                        {
+                                                            message.role === "system" && (
+                                                                <>
+                                                                    <div style={{
+                                                                        display: 'flex',
+                                                                        flexDirection: 'row',
+                                                                        alignItems: 'start'
+                                                                    }}>
+                                                                        <div style={{
+                                                                            paddingTop: '1.5rem',
+                                                                            paddingRight: '1rem'
+                                                                        }}>
+                                                                            <SmartToyIcon sx={{fontSize: '2.5rem'}}/>
+                                                                        </div>
+                                                                        <Typography fontSize={'2rem'}
+                                                                            // className={styles.description}>
+                                                                        >
+                                                                            {message.content}
+                                                                        </Typography>
+                                                                    </div>
+                                                                </>
+                                                            )
+                                                        }
+
+                                                        {
+                                                            message.role === "user" && (
+                                                                <div style={{
+                                                                    display: 'flex',
+                                                                    flexDirection: 'row',
+                                                                    alignItems: 'start'
+                                                                }}>
+                                                                    <div style={{
+                                                                        paddingTop: '1.5rem',
+                                                                        paddingRight: '1rem'
+                                                                    }}>
+                                                                        <AccountBoxIcon sx={{fontSize: '2.5rem'}}/>
+                                                                    </div>
+
+                                                                    <Typography fontSize={'2rem'}
+                                                                                className={styles.description}>
+                                                                        {message.content}
+                                                                    </Typography>
+                                                                </div>
+
+                                                            )
+                                                        }
+                                                    </div>
+                                                </Grid>
+
                                                 <div className={styles.description}>
                                                     <Typography fontSize={'2rem'}>
                                                         {message.content}
                                                     </Typography>
                                                 </div>
-                                            </Grid>
+
+                                            </>
                                         );
                                     })
                                 }
-
 
 
                             </Grid>

@@ -17,6 +17,8 @@ import {getDocs} from "@firebase/firestore";
 import {QuerySnapshot} from "@firebase/firestore-types";
 import {router} from "next/client";
 import {useRouter} from "next/router";
+import AddCommentIcon from '@mui/icons-material/AddComment';
+
 
 type Anchor = 'left';
 
@@ -67,16 +69,18 @@ useEffect(()=>{
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
+
+                    <ListItem key={"newChat"} disablePadding>
+                        <ListItemButton onClick={ () => {
+                            router.push('/')
+                        }
+                        }>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
+                               <AddCommentIcon/>
                             </ListItemIcon>
-                            <ListItemText disableTypography primary={text} style={textCustom}/>
+                            <ListItemText disableTypography primary={"New Chat"} style={textCustom}/>
                         </ListItemButton>
                     </ListItem>
-                ))}
             </List>
             <Divider/>
             <List>
@@ -95,7 +99,7 @@ useEffect(()=>{
         </Box>
     );
 
-    return (<div>
+    return (<div style={{zIndex:'100', position:'absolute'}}>
             <React.Fragment key={"left"}>
                 <Button onClick={toggleDrawer("left", true)}
                         endIcon={<ArrowForwardIosTwoToneIcon sx={{fontSize: '2rem !important'}}/>}

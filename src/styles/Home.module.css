@@ -48,10 +48,10 @@
 .grid {
     border: 6px solid black;
     border-radius: 4rem;
-
-
+    padding-top: 4rem;
 }
 .gridScrollbar::-webkit-scrollbar{
+
     width: 8px;
     height: 2px;
 
@@ -74,8 +74,9 @@
     /*border: 6px solid black;*/
     /*border-radius: 4rem;*/
     overflow: auto;
-    max-height: 800px;
+    max-height:800px;
     padding: 0 2rem;
+
 }
 
 
