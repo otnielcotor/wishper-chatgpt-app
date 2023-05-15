@@ -1,12 +1,1 @@
-{
-  "type": "service_account",
-  "project_id": "stone-booking-385908",
-  "private_key_id": "dc35edbeb7ddc24bd72498e7740e017c780a0d61",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCqpgC8e6j/X75C\nk1tq42ez/fRb+Aeljm/b6/62aMDjsbFzpT77xIN7rkKJw048yS51gM3TtceVYmp8\nuS0SydP9vn54aN0x7klgTcvQAf97szoz6UOucjaKjEbKfZN9NSCGPnMI6jIb20ID\ng024+OXhCOzokTq3MrNsqFiTYTll5d6/VU5eyVPQwuevYa61Xjjv5vlHfN3juDbV\nLDu5gimi8BCgzHQBnnFrgbSlwEuWaP9CLVR6izLGL34G/yMUbG4djcPNNhtpT5cS\nXfBzIjhhf3OTI3SSUPIQs7Clg9w62HZ7W3FyEx+mWShNUoEzrwgibm5dRjwWRP6X\nKtgQUulZAgMBAAECggEACzKRIA0Tu+0gBo2VjTQekwueGBZUhx8rdSB9UmIZjR9U\n8/ATC9F7aLdYr6JAjSHM4gI5j1OxZNqkPuqmO+JBPjhco2FLKWp3x2FXdz7YUTlD\nn5ImAimFrW3yu7kFf2zn5VMt+HboopYOtP0N0a5IZE2yAPk9o3WI2z+JL2OM8QQK\nqooWh5jc2EPwi8g0SBjJcAJ8Fi9CoavGNKvwps549xVRfDZfM2sqaWu7JbAh2xT7\nF8qrWC1/Jw0M/pGdkL0YyKGlJvjFnVGo+auHFRMOh2rGl5WA4WEqHQzEwFGRyNWj\ny5OzZvRHtFEcO/LQ2fUxfZSxiLO1kTA57x1X6DMpwQKBgQDrwixW9GjTNzUiCpyM\nhSzx6+1Ky0aMov4+9pWkzkjJWYse+uNp3AMntzHu2WDqR/c4qjpVS0A/gSXUZkPB\nKEAqA8mtlOXufTW8sdiXRbcpTuzephIUXDcbV949nTVYoTbf9hy4pUiYLf0JgqN8\nM2Y52bJsYp+RXsIy7kmrG5ynmQKBgQC5TMA/53wqL1It3e708VFPTWFLco4eqBzg\ncLmWsDkKO7NTWXAj1shHtl8sAhirzXIlFKnGTketxftZt44YQXvz3uzTTyAA3Wkb\nU5w3DapsDVLCBzQCZF4idfWOHP8aTiUFlSHZ6VyqRj1LtfjIAvQAWsacsChQXyqQ\ntHqTLFpnwQKBgDkA3AOyWN4pDRnMAwoe8T0VVGyvNcGvb1X9/TS6A/NbST4WX4Ir\nBkBGFTaxLLO47teuoSgaZ9BzA5iVmXBMsSb3f34O8IF3mNSlE7+PxbehM7ip4tk1\nasWbu0qehlWFtWT1dwBWRnU1OWdhRPI041S9hFychAR8KuxxnTJYHMqRAoGAM+CV\nAk8gp/7Plx/HQrQ8+2LClojf2R1f2EY270Uu8vp73h3wE1iSgeFBC+UaWx8NkewT\nC/3me3QuRpPpKElNFp2W2CIS56sVPh1OYutkhxPD06aInRLUd/lmYf8kPI0cOE/k\nRknbM6CukH/FwtlwzpibekqnPrkmBZVBq+qC9QECgYEAgtKOBXO9NTDbM1wUz2z2\nkkBtuJpT+Jive3PHWFsoNmP03XbJUfV51me+I+bKabTCDc6c+6tvNUTJ1t8pTrBR\nJVfZAqtnjem5VkwP9Zj42cSV5fBnzAaGwjO8Z4zBUODDVFDDmRP6kDu1F6euOkI1\np83Tcql51RMVP7ph0BKyWsg=\n-----END PRIVATE KEY-----\n",
-  "client_email": "otnielcotor@stone-booking-385908.iam.gserviceaccount.com",
-  "client_id": "107045503304132661427",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/otnielcotor%40stone-booking-385908.iam.gserviceaccount.com"
-}
+
